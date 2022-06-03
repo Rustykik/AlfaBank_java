@@ -1,0 +1,11 @@
+feign:
+  clients:
+    currency:
+      name: "currency"
+      url: "https://openexchangerates.org/api/"
+      app_id: "3009f7558066428f83561e07c8c8309c"
+      base: "USD"
+    gif:
+      name: "gif"
+      api_key: "fhsUcYw0isYtS7ftAiPcOs7XOFlyTrtP"
+      url: "https://api.giphy.com/v1/"
