@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
     private final FeignCurrencyClient currencyClient;
     private final FeignGifClient gifClient;
     /**
-     * later change to private
+     *
      */
     public BigDecimal getYesterdayRates(String symbol) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -58,15 +58,22 @@ public class UserServiceImpl implements UserService {
             log.warn("Third party api returns invalid JSON", e);
             throw new ThirdPartyApiInvalidAnswerException("Sorry third party api is not working");
         }
+
         return currency;
     }
 
     // ToDo make rich broke 2 variables and split it on 2 methods in feign
     public Gif getGif(String tag) {
-        String ret = gifClient.getRandomGif(tag);
+        String id;
+        try {
+            String ret = gifClient.getRandomGif(tag);
+            String url = GifParser.getUrlFromRawJSON(ret);
+            id = GifParser.parseIdFromUrl(url);
+        } catch (JSONException | FeignException e) {
+            log.warn("Third party api returns invalid JSON", e);
+            throw new ThirdPartyApiInvalidAnswerException("Sorry third party api is not working");
+        }
 
-        String id = GifParser.getUrlFromRawJSON(ret);
-        id = GifParser.parseIdFromUrl(id);
         return new Gif("https://i.giphy.com/" + id + ".gif");
     }
 
