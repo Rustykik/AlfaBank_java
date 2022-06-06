@@ -1,0 +1,9 @@
+{
+  "disclaimer": "Usage subject to terms: https://openexchangerates.org/terms",
+  "license": "https://openexchangerates.org/license",
+  "timestamp": 1654451788,
+  "base": "USD",
+  "rates": {
+    "BTC": 0.000033287503
+  }
+}
