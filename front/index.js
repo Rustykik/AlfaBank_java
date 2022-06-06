@@ -5,7 +5,7 @@ const btn = document.getElementById("btn")
 const img = document.getElementById("img")
 const rate_was = document.getElementById("rate_was")
 const rate_now = document.getElementById("rate_now")
-
+const img_container = document.getElementById("img_container")
 
 const getImg = async (id) => {
 	symbol = document.getElementById('searchTag').value
@@ -13,7 +13,12 @@ const getImg = async (id) => {
 	const rateLatest = await (await fetch(apiCurrencies + symbol + "/yesterday", {method: 'GET'})).json()
 	rate_was.textContent = rateYesterday
 	rate_now.textContent = rateLatest
-	tag = rateLatest > rateLatest ? "rich": "broke";
+	tag = rateLatest > rateYesterday ? "rich": "broke";
+	if (tag == "rich") {
+		img_container.style.backgroundColor = "rgb(137, 255, 204)"
+	} else {
+		img_container.style.backgroundColor = "rgb(251, 205, 205)"
+	}
 	const gif = await (await fetch(apiGif + "?tag=" + tag, {method: 'GET'})).json()
     img.src = gif['url']
 }
