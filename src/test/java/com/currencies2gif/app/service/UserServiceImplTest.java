@@ -93,18 +93,6 @@ class UserServiceImplTest {
         //then
         assertThatThrownBy(()->underTest.getYesterdayRates(symbol)).isInstanceOf(ThirdPartyApiInvalidAnswerException.class);
     }
-    @Test
-    void getYesterdayRates_Should_Throw_ApiRequestCurrencyException() {
-        //given
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String currTime = LocalDate.now().minusDays(1).format(formatter);
-        String symbol = "BTC";
-        Mockito.when(mockFeignCurrencyClient.getCurrenciesOnDate(currTime, symbol)).thenThrow(FeignException.class);
-        //when
-
-        //then
-        assertThatThrownBy(() -> underTest.getYesterdayRates(symbol)).isInstanceOf(ApiRequestCurrencyException.class);
-    }
 
     @Test
     void getYesterdayRates_Should_Throw_ThirdPartyApiInvalidAnswerException() {
