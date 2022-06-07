@@ -103,12 +103,14 @@ Status|Result
 
 HTML/CSS со скриптом на JS, который запрашивает данные из REST API  endpoint'ов и на основе полученных результатов отображает GIF 
 
+## Архитектура
+
+![architecture](/info/img/arcitecture.png)
+
+## Screenshots
+
 ![front](/info/img/front_bad1.png)
 ![front2](/info/img/front_good1.png)
 ![front3](/info/img/front_bad2.png)
 ![front4](/info/img/front_good2.png)
 
-
-## Архитектура
-
-![architecture](/info/img/arcitecture.png)
