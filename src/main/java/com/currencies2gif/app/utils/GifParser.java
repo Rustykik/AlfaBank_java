@@ -15,7 +15,7 @@ public class GifParser {
                 .getString("url");
         return gifUrl;
     }
-    // TODO add exception
+
     public static String parseIdFromUrl(String url) {
         final String regex = "(?<=/media/)(.*)(?=/giphy)";
         Pattern pattern = Pattern.compile(regex);

@@ -8,12 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient(value = "${feign.clients.currency.name}", url = "${feign.clients.currency.url}")
 public interface FeignCurrencyClient {
-    /**
-     * TODO maybe return something else instead of string
-     * @param date
-     * @param symbols
-     * @return
-     */
+
     @RequestMapping(method = RequestMethod.GET, value = "historical/{date}.json?base=${feign.clients.currency.base}&app_id=${feign.clients.currency.app_id}")
     public String getCurrenciesOnDate(@PathVariable String date, @RequestParam String symbols);
 

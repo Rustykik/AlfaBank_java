@@ -22,10 +22,9 @@ import java.time.format.DateTimeFormatter;
 @Slf4j
 public class UserServiceImpl implements UserService {
     private final FeignCurrencyClient currencyClient;
+
     private final FeignGifClient gifClient;
-    /**
-     *
-     */
+
     public BigDecimal getYesterdayRates(String symbol) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String currTime = LocalDate.now().minusDays(1).format(formatter);
@@ -66,7 +65,6 @@ public class UserServiceImpl implements UserService {
         return currency;
     }
 
-    // ToDo make rich broke 2 variables and split it on 2 methods in feign
     public Gif getGif(String tag) {
         String id;
         try {
@@ -75,7 +73,7 @@ public class UserServiceImpl implements UserService {
             id = GifParser.parseIdFromUrl(url);
         } catch (JSONException | FeignException e) {
             log.warn("Third party api returns invalid JSON", e);
-            throw new ThirdPartyApiInvalidAnswerException("Sorry third party api is not working");
+            throw new ThirdPartyApiInvalidAnswerException("Third party API is not available at the moment.");
         }
 
         return new Gif("https://i.giphy.com/" + id + ".gif");
