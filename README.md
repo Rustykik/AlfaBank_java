@@ -9,7 +9,12 @@
 **Prerequisites**  
 Docker (проверено с version 20.10.16) и docker-compose (проверенно с version 1.29.2)  
 
+clone  
+
     git clone https://github.com/Rustykik/AlfaBank_java && cd AlfaBank_java
+
+build
+
     docker-compose up --build -d
 
 В браузере http://localhost/
@@ -28,7 +33,12 @@ openjdk (проверенно с version "11.0.15" 2022-04-19)
 
 Запустить Backend
 
+Сборка
+
     gradle clean build
+
+Запуск
+
     java -jar build/libs/app-0.0.1-SNAPSHOT.jar 
 
 ## Возможные ошибки
