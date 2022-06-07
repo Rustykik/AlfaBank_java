@@ -15,9 +15,9 @@ const getImg = async (id) => {
 	rate_now.textContent = rateLatest
 	tag = rateLatest > rateYesterday ? "rich": "broke";
 	if (tag == "rich") {
-		img_container.style.backgroundColor = "rgb(137, 255, 204)"
+		img_container.style.backgroundColor = "rgb(106, 214, 183)"
 	} else {
-		img_container.style.backgroundColor = "rgb(251, 205, 205)"
+		img_container.style.backgroundColor = "rgb(239, 47, 37)"
 	}
 	const gif = await (await fetch(apiGif + "?tag=" + tag, {method: 'GET'})).json()
     img.src = gif['url']
