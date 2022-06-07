@@ -4,6 +4,9 @@
 
 # Тестовое задание от Альфа Банка
 
+[Как запустить](##Как запустить)  
+[Что это](##Что это)
+
 ## Как запустить
 
 **Prerequisites**  
@@ -69,7 +72,7 @@ feign:
       url: "https://api.giphy.com/v1/"
 ```
 
-### REST API
+## REST API
 
     api/v1/currencies/{CUR}/latest GET request
 
