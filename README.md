@@ -14,6 +14,7 @@ Docker (проверено с version 20.10.16) и docker-compose (провер�
 
 В браузере http://localhost/
 
+---
 
 или  собрать Backend отдельно  
 
@@ -52,6 +53,22 @@ REST API гифок - https://developers.giphy.com/docs/api#quick-start-guide
 
 ![test_coverage](info/img/test_coverage.png)
 
+## Configure
+Параметры - валюта по отношению к которой смотрится курс, адреса внешних сервисов, ключи приложений вынесены в application.yml
+```yml
+feign:
+  clients:
+    currency:
+      name: "currency"
+      url: "https://openexchangerates.org/api/"
+      app_id: "3009f7558066428f83561e07c8c8309c"
+      base: "USD"
+    gif:
+      name: "gif"
+      api_key: "fhsUcYw0isYtS7ftAiPcOs7XOFlyTrtP"
+      url: "https://api.giphy.com/v1/"
+```
+
 ### REST API
 
     api/v1/currencies/{CUR}/latest GET request
@@ -75,6 +92,8 @@ Status|Result
 
     api/v1/gifs/random GET request requiers param "tag"
 
+**Responses**:
+
 Status|Result
 ---|-----
 200| Gif link, for example```json {"url":"https://i.giphy.com/MFJPimi32jUk7KbJyb.gif"}```
@@ -84,9 +103,12 @@ Status|Result
 
 HTML/CSS со скриптом на JS, который запрашивает данные из REST API  endpoint'ов и на основе полученных результатов отображает GIF 
 
-## Сборка
-Frontend собирается в докер контейнере на основе nginx
+![front](/info/img/front_bad1.png)
+![front2](/info/img/front_good1.png)
+![front3](/info/img/front_bad2.png)
+![front4](/info/img/front_good2.png)
 
-## Структура
+
+## Архитектура
 
 ![architecture](/info/img/arcitecture.png)
