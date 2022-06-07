@@ -1,4 +1,4 @@
-const apiGif = "http://localhost:8080/api/v1/gifs/random" //ссылка на api
+const apiGif = "http://localhost:8080/api/v1/gifs/random"
 const apiCurrencies = "http://localhost:8080/api/v1/currencies/"
 
 const btn = document.getElementById("btn")
