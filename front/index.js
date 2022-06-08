@@ -27,25 +27,3 @@ btn.addEventListener("click", () =>{
     getImg()
 })
 
-// try {
-// 	const response = await fetch("http://localhost:8000/api/v1/book", {
-// 	  headers: {
-// 		Accept: "application/json"
-// 	  }
-// 	});
-// 	if (!response.ok) {
-// 	  if (response.status === 429) {
-// 		// displaying "wow, slow down mate"
-// 	  } else if (response.status === 403) {
-// 		// displaying "hm, what about no?"
-// 	  } else {
-// 		// displaying "dunno what happened \_(ツ)_/¯"   
-// 	  }
-// 	  throw new Error(response);
-// 	}
-// 	const books = await response.json();
-  
-// 	// storing my books
-//   } catch(exception) {
-// 	// storing my error onto Sentry
-//   }
